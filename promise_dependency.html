@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Learning JS</title>
+
+
+<body onload="onLoadStartUp()">
+
+Learning Javascript
+
+<script type="text/javascript" id="floBlockchainAPI">
+	    var getBalance = function(){
+            return new Promise((resolve,reject) => {
+                resolve(0)
+            }).catch(error => console.error(error))
+        };
+	
+</script>>
+
+
+<script type="text/javascript" id="floDapps">
+
+        launchStartUp = function(){
+            return new Promise((resolve,reject) => {
+            	var floID="F8BpiYjxCKBrrdpGo6b1XnsXKwNXM3E2PK"
+                resolve(floID)
+            }).catch(error => console.error(error))
+        };
+
+        var greet = function() {
+  			return 'Hello world';
+		};	
+</script>>
+
+<script id="mainscript">
+
+    function onLoadStartUp() {
+        var promise = new Promise(function(resolve, reject) { 
+        launchStartUp().then(floID => {
+            console.log(floID)
+            alert(`Welcome FLO_ID: ${floID}`)
+            resolve(floID); 
+        }).catch(error => console.error(error))
+    }); 
+
+    promise
+        .then(function (floID) { 
+            //App functions....
+            console.log(floID); 
+            getBalance(floID)
+            .then(result => {
+                console.log(result)
+                alert(`Found ${result} balance for FLO_ID: ${floID}`)
+            })
+            .catch(error => console.error(error))
+        })
+        .catch(function (errormessage) { 
+            console.log(errormessage); 
+        }); 
+
+    }
+</script>
+</body>
